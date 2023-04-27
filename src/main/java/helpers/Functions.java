@@ -6,12 +6,34 @@ import classes.Error;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
-import java.util.Scanner;
+import java.util.*;
 
 import static adapters.ApiClient.getAPIContent;
 
 public class Functions {
 
+    public static List<Media> sortMedia(List<Media> unsortedMedia){
+
+        Comparator<Media> ratingComparator = Comparator.comparing(Media::getImdbRating).reversed();
+        unsortedMedia.sort(ratingComparator);
+
+        return unsortedMedia;
+    }
+
+    public static Media getMediaExtraInfo(String id) throws IOException {
+
+        String pid = "&i="+id;
+
+        String PARAMS = pid;
+
+        String content = getAPIContent(PARAMS);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        Media media = objectMapper.readValue(content, Media.class);
+
+        return media;
+    }
 
     public static void SearchMovies() throws Exception {
 
@@ -55,16 +77,26 @@ public class Functions {
             ObjectMapper objectMapper = new ObjectMapper();
             Response response = objectMapper.readValue(content, Response.class);
 
+            List<Media> unsortedMediaList = new ArrayList<Media>();
+
+            for (Search s: response.getSearch()) {
+                unsortedMediaList.add(getMediaExtraInfo(s.getImdbID()));
+            }
+
+            List<Media> sortedMediaList = sortMedia(unsortedMediaList);
+
             Integer index = 0;
             System.out.println("Results: ");
-            for (Search s: response.getSearch()) {
+            for (Media m: sortedMediaList) {
                 ++index;
                 System.out.println("--------");
                 System.out.println("Result "+index+":");
-                System.out.println("  Title: " + s.getTitle());
-                System.out.println("  ID ImdbPlot: " + s.getImdbID());
-                System.out.println("  Type: " + s.getType());
-                System.out.println("  Year: " + s.getYear());
+                System.out.println("  Title: " + m.getTitle());
+                System.out.println("  Rating: " + m.getImdbRating());
+                System.out.println("  Plot: " + m.getPlot());
+                System.out.println("  Genre: " + m.getGenre());
+                System.out.println("  Type: " + m.getType());
+                System.out.println("  Year: " + m.getYear());
             }
 
             // Get more information about a movie or series
