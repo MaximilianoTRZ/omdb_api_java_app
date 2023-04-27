@@ -3,6 +3,5 @@ org\app\Main.class
 classes\Search.class
 classes\Rating.class
 classes\Media.class
-classes\Error.class
 helpers\Functions.class
 adapters\ApiClient.class
