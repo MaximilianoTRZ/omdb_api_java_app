@@ -1,6 +1,6 @@
 # Classes Documentation
 
-### ApiClient class
+### ApiClient
 
 The ApiClient class is used to make HTTP requests to the OMDB API using the provided API key. This class provides a method for getting the content from the API for the provided parameters.
 
