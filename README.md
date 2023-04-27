@@ -80,8 +80,12 @@ Result 4:
 If you want to get the complete information of a movie or series from the displayed list, enter the corresponding number in the console. For example:
   ```
   Enter the number of the movie you want to get more info: 
-5
+  5
+  ```
+#### Show Information
+The application will then display all the available information about that movie or series.
 
+```
 Title: Spider-Man: No Way Home
 Year: 2021
 Rated: PG-13
@@ -111,3 +115,41 @@ BoxOffice: $814,115,070
 Production: Columbia Pictures
 Website: N/A
   ```
+### 3. Get Movies by Name and Year Range
+If you want to get a list of movies containing a certain name and released within a range of years, enter the name, start year, and end year in the console. For example:
+
+```
+Enter a movie or series name: 
+man
+Enter the year since you are looking for:
+2018
+Enter the year to you are looking for:
+2020
+```
+ #### Show Information
+ 
+ 
+ ```
+Results from year 2018:
+1. Spider-Man: Into the Spider-Verse - 2018
+2. Ant-Man and the Wasp - 2018
+3. First Man - 2018
+.
+.
+.
+Results from year 2019:
+1. Spider-Man: Far from Home - 2019
+2. Gemini Man - 2019
+3. The Family Man - 2019–
+.
+.
+.
+Results from year 2020:
+1. The Invisible Man - 2020
+2. The Empty Man - 2020
+3. James May: Our Man in... - 2020–2022
+.
+.
+.
+ ```
+ 
