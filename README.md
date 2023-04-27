@@ -132,9 +132,9 @@ If you want to get a list of movies containing a certain name and released withi
 ```
 Enter a movie or series name: 
 man
-Enter the year since you are looking for:
+Enter the start year you are looking for:
 2018
-Enter the year to you are looking for:
+Enter the end year you are looking for:
 2020
 ```
  #### Information displayed
