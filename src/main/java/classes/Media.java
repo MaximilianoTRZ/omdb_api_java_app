@@ -53,7 +53,7 @@ public class Media {
     private String metascore;
 
     @JsonProperty("imdbRating")
-    private Double imdbRating;
+    private String imdbRating;
 
     @JsonProperty("imdbVotes")
     private String imdbVotes;
@@ -218,11 +218,11 @@ public class Media {
         this.metascore = metascore;
     }
 
-    public Double getImdbRating() {
+    public String getImdbRating() {
         return imdbRating;
     }
 
-    public void setImdbRating(Double imdbRating) {
+    public void setImdbRating(String imdbRating) {
         this.imdbRating = imdbRating;
     }
 

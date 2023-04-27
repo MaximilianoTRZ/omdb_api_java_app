@@ -1,16 +1,31 @@
 package classes;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
 public class Response {
-    @JsonProperty("Search")
-    private List<Search> search;
-    @JsonProperty("totalResults")
-    private String totalResults;
     @JsonProperty("Response")
     private String response;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty("Search")
+    private List<Search> search;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty("totalResults")
+    private String totalResults;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty("Error")
+    private String error;
+
+    public String getResponse() {
+        return response;
+    }
+
+    public void setResponse(String response) {
+        this.response = response;
+    }
 
     public List<Search> getSearch() {
         return search;
@@ -28,12 +43,12 @@ public class Response {
         this.totalResults = totalResults;
     }
 
-    public String getResponse() {
-        return response;
+    public String getError() {
+        return error;
     }
 
-    public void setResponse(String response) {
-        this.response = response;
+    public void setError(String error) {
+        this.error = error;
     }
 }
 

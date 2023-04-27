@@ -8,8 +8,8 @@ import java.io.*;
 import java.util.Locale;
 import java.util.Scanner;
 
-import static helpers.Functions.SearchOne;
-import static helpers.Functions.menu;
+import static helpers.Functions.*;
+import static java.lang.System.in;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -69,17 +69,18 @@ class FunctionsTest {
     }
 
     @Test
-    void menuShowsOptions() throws Exception {
+    public void menuShowsOptions() throws Exception {
 
         String expectedOutput =
-                "-------------- MOVIE & SERIES MENU --------------\n" +
+                "-------------- OMDB MOVIES SEARCH APP MENU --------------\n" +
                 "Enter the number of the option you want:\n" +
-                "1. Search movie or series by name, type or year.\n"+
+                "1. Search movie or series by name, type or year.\n" +
                 "2. Search movie or series by name and year range.\n" +
-                "No option selected.\n";
+                "0. Exit app.\n" +
+                "---------------------------------------------------------\n" +
+                "Thanks for using OMDB Movies Search App.\n";
 
         String input = "0";
-
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
@@ -88,17 +89,5 @@ class FunctionsTest {
         assertEquals(expectedOutput.toLowerCase(Locale.ROOT), outputStreamCaptor.toString().toLowerCase(Locale.ROOT));
 
     }
-
-//    @Test
-//    void searchMovies() {
-//    }
-//
-//    @Test
-//    void searchOne() {
-//    }
-//
-//    @Test
-//    void searchByRange() {
-//    }
 
 }

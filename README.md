@@ -163,3 +163,46 @@ Results from year 2020:
 .
  ```
  
+ 
+### Dockerizing the Application
+
+1. In the root directory of the project it is a Dockerfile that will create a new image based on the OpenJDK 11 version, install maven, set the working directory to /app, create a jar file, and execute the jar file when the container starts.
+
+2. Build the Docker image by running the following command in the root directory of the project:
+```
+docker build . -t omdbapp:v1.0
+```
+This command will use the Dockerfile to build the image and tag it as omdbapp:v1.0.
+
+3. Run the Docker container by executing the following command:
+```
+docker run --name omdbapp -it -p 8080:8080 omdbapp:v1.0
+```
+This command will start a new container named omdbapp, forward the port 8080 of the host to the port 8080 of the container, and use the omdbapp:v1.0 image to run the container.
+
+### Unit Tests Documentation
+
+#### FunctionsTest Class
+
+- ```showsCompleteInfoAboutAMovie()```
+
+This test verifies if the SearchOne() function returns the complete information about a particular movie. The movie ID is provided as input and the function is expected to return a formatted string containing the movie information. The expected output string contains the movie title, release year, rating, runtime, genre, director, writer, actors, plot, language, country, awards, poster, ratings, IMDB rating, IMDB votes, IMDB ID, type, DVD release date, box office, production, and website. The test uses the assertEquals() method to compare the expected output with the actual output obtained from the outputStreamCaptor.
+
+- ```menuShowsOptions()```
+
+This test verifies if the menu() function displays the correct menu options when executed. The expected output string contains the menu options available to the user. The test uses System.setIn() to provide input to the menu() function, simulating user input of 0. The test then uses the assertEquals() method to compare the expected output with the actual output obtained from the outputStreamCaptor.
+
+
+#### APIClientTest Class
+
+- ```apiReturnsAnStringContent()```
+
+This test verifies that the getAPIContent method returns a string content when provided with a valid input parameter. The test first calls the getAPIContent method with the input parameter &i=tt3896198. It then asserts that the object returned is of the String class using assertEquals. If the returned object is not a String, the test will fail.
+
+- ```apiCallBadParamsThrowsIOException```
+
+This test verifies that the getAPIContent method throws an IOException when provided with invalid input parameters. The test calls the getAPIContent method with an invalid input parameter "exampleBadParam" using assertThrows and verifies that it throws an IOException. If the method does not throw an IOException, the test will fail.
+
+- ```makeApiCallReturnsNotNull```
+
+This test verifies that the getAPIContent method returns a non-null value when provided with a valid input parameter. The test first calls the getAPIContent method with the input parameter &i=tt3896198. It then asserts that the returned value is not null using assertNotNull. If the method returns a null value, the test will fail.
