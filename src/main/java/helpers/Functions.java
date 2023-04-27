@@ -177,10 +177,10 @@ public class Functions {
         System.out.println("Enter a movie or series name: ");
         String name = scanner.nextLine();
         //Get Year Since
-        System.out.println("Enter the year since you are looking for:");
+        System.out.println("Enter the start year you are looking for:");
         Integer yearSince = Integer.parseInt(scanner.nextLine());
         //Get Year To
-        System.out.println("Enter the year to you are looking for:");
+        System.out.println("Enter the end year you are looking for:");
         Integer yearTo = Integer.parseInt(scanner.nextLine());
 
 
