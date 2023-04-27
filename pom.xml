@@ -71,7 +71,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>org.main.Main</mainClass>
+                            <mainClass>org.app.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -90,7 +90,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.main.Main</mainClass>
+                            <mainClass>org.app.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
