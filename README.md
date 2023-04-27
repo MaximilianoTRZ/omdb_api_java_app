@@ -23,6 +23,9 @@ The application has the following features:
 ## How to Use the Application
 After the dependencies are downloaded, the application can be executed by navigating to the directory containing the jar file and running the command ```java -jar <jar-file-name>```. To use the application, execute the JAR file and follow the instructions displayed in the console. Alternatively, the application can be run using the Maven command ```mvn exec:java -Dexec.mainClass=org.app.Main```.
 
+## Classes and Functions Docs
+
+The full classes and functions documentation can be found in the ```documetation``` folder inside the repository.
 
 ### Options Menu
 First, you will see an options menu as following:
