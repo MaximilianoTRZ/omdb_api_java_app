@@ -51,7 +51,7 @@ Enter the number of the type or leave empty and press enter: (optional)
 Enter the year or leave empty and press enter: (optional)
 2015
   ```
- #### Show Information
+ #### Information displayed
 The application will display the obtained information from the search in rating order, from highest to lowest. The information displayed will include the title, rating, plot, genre, type and year. For example:
 
   ``` 
@@ -93,7 +93,7 @@ If you want to get the complete information of a movie or series from the displa
   Enter the number of the movie you want to get more info: 
   5
   ```
-#### Show Information
+#### Information displayed
 The application will then display all the available information about that movie or series.
 
 ```
@@ -137,8 +137,7 @@ Enter the year since you are looking for:
 Enter the year to you are looking for:
 2020
 ```
- #### Show Information
- 
+ #### Information displayed
  
  ```
 Results from year 2018:
