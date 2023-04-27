@@ -163,3 +163,19 @@ Results from year 2020:
 .
  ```
  
+ 
+### Dockerizing the Application
+
+1. In the root directory of the project it is a Dockerfile that will create a new image based on the OpenJDK 11 version, install maven, set the working directory to /app, create a jar file to the /app directory, and execute the jar file when the container starts.
+
+2. Build the Docker image by running the following command in the root directory of the project:
+```
+docker build . -t omdbapp:v1.0
+```
+This command will use the Dockerfile to build the image and tag it as omdbapp:v1.0.
+
+3. Run the Docker container by executing the following command:
+```
+docker run --name omdbapp -it -p 8080:8080 omdbapp:v1.0
+```
+This command will start a new container named omdbapp, forward the port 8080 of the host to the port 8080 of the container, and use the omdbapp:v1.0 image to run the container.
