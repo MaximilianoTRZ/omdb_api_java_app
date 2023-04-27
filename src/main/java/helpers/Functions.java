@@ -74,7 +74,7 @@ public class Functions {
                 String pid = response.getSearch().get(Integer.parseInt(idx)-1).getImdbID();
 
                 // Show the complete info about the movie selected.
-//                SearchOne();
+                SearchOne(pid, type, year);
 
             } catch (Exception e){
                 System.out.println(e.getMessage());
@@ -87,8 +87,57 @@ public class Functions {
         }
     }
 
-    public static void SearchOne() {
-        //code
+    public static String SearchOne(String id, String type, String year) throws Exception {
+        String pid = "&i="+id;
+        String ptype = "&type="+type;
+        String pyear = "&y="+year;
+
+        String PARAMS = pid + (type.isEmpty() ? ' ' : ptype ) + (year.isEmpty() ? ' ' : pyear );
+
+        String content = getAPIContent(PARAMS);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        Media media = objectMapper.readValue(content, Media.class);
+
+        String output = "";
+        output += "Title: " + media.getTitle() + "\n";
+        output += "Year: " + media.getYear() + "\n";
+        output += "Rated: " + media.getRated() + "\n";
+        output += "Released: " + media.getReleased() + "\n";
+        output += "Runtime: " + media.getRuntime() + "\n";
+        output += "Genre: " + media.getGenre() + "\n";
+        output += "Director: " + media.getDirector() + "\n";
+        output += "Writer: " + media.getWriter() + "\n";
+        output += "Actors: " + media.getActors() + "\n";
+        output += "Plot: " + media.getPlot() + "\n";
+        output += "Language: " + media.getLanguage() + "\n";
+        output += "Country: " + media.getCountry() + "\n";
+        output += "Awards: " + media.getAwards() + "\n";
+        output += "Poster: " + media.getPoster() + "\n";
+        output += "Ratings: \n";
+        for (Rating r: media.getRatings()) {
+            output += r.getSource() + "\n";
+            output += r.getValue() + "\n";
+        }
+        output += "Metascore: " + media.getMetascore() + "\n";
+        output += "imdbRating: " + media.getImdbRating() + "\n";
+        output += "imdbVotes: " + media.getImdbVotes() + "\n";
+        output += "imdbID: " + media.getImdbID() + "\n";
+        output += "Type: " + media.getType() + "\n";
+
+        if (media.getType().toString().equals("movie")){
+            output += "DVD: " + media.getDVD() + "\n";
+            output += "BoxOffice: " + media.getBoxOffice() + "\n";
+            output += "Production: " + media.getProduction() + "\n";
+            output += "Website: " + media.getWebsite() + "\n";
+        } else if (media.getType().toString().equals("series")) {
+            output += "totalSeasons: " + media.getTotalSeasons() + "\n";
+        }
+
+        System.out.println(output);
+
+        return output;
     }
 
     public static void SearchByRange() {
