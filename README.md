@@ -10,8 +10,19 @@ The application has the following features:
 2. From the above list, the user has the option to select the complete information of a chosen movie or TV show.
 3. The user has an option to obtain movies with a specific name and range of years. As a result, it lists the found movies with their name and release year.
 
+## Requirements
+
+- Java Development Kit (JDK) version 11 or higher should be installed on the system.
+- Maven build tool version 3.3.0 or higher should be installed on the system.
+- An internet connection is required to download dependencies specified in the pom.xml file from the Maven Central Repository.
+- The application requires access to the OMDB API. Therefore, an API key must be obtained from http://www.omdbapi.com/ and exported as an environment variable named "API_KEY".
+- Clone the source code from this repository.
+- The dependencies specified in the pom.xml file must be resolved and downloaded by Maven. This can be done by navigating to the root directory of the project and executing the command ```mvn clean install``` in the terminal.
+- The jar file with dependencies can be created running the command ```mvn clean compile assembly:single```
+
 ## How to Use the Application
-To use the application, execute the JAR file and follow the instructions displayed in the console.
+After the dependencies are downloaded, the application can be executed by navigating to the directory containing the jar file and running the command ```java -jar <jar-file-name>```. To use the application, execute the JAR file and follow the instructions displayed in the console. Alternatively, the application can be run using the Maven command ```mvn exec:java -Dexec.mainClass=org.app.Main```.
+
 
 ### Options Menu
 First, you will see an options menu as following:
