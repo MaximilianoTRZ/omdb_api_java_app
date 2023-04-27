@@ -140,9 +140,52 @@ public class Functions {
         return output;
     }
 
-    public static void SearchByRange() {
-        //code
+    public static void SearchByRange() throws IOException {
+        Scanner scanner = new Scanner(System.in);
+
+        //Get Name
+        System.out.println("Enter a movie or series name: ");
+        String name = scanner.nextLine();
+        //Get Year Since
+        System.out.println("Enter the year since you are looking for:");
+        Integer yearSince = Integer.parseInt(scanner.nextLine());
+        //Get Year To
+        System.out.println("Enter the year to you are looking for:");
+        Integer yearTo = Integer.parseInt(scanner.nextLine());
+
+
+        // URL Compose
+        String pname = "&s="+name;
+
+        for (int year = yearSince; year <= yearTo; year++) {
+
+            String pyear = "&y="+year;
+
+            String PARAMS = pname + pyear;
+
+            String content = getAPIContent(PARAMS);
+
+            try{
+                ObjectMapper objectMapper = new ObjectMapper();
+
+                Response response = objectMapper.readValue(content, Response.class);
+
+                Integer index = 0;
+                System.out.println("Results from year "+ year + ":");
+                for (Search s: response.getSearch()) {
+                    ++index;
+                    System.out.println(index+". " + s.getTitle() + " - " + s.getYear());
+                }
+            } catch (Exception e){
+                ObjectMapper objectMapper = new ObjectMapper();
+                Error error = objectMapper.readValue(content.toString(), Error.class);
+                System.out.println(error.getError());
+//                System.out.println(e.getMessage());
+                return;
+            }
+        }
     }
+
     public static void menu() throws Exception {
 
         Scanner scanner = new Scanner(System.in);
@@ -158,10 +201,11 @@ public class Functions {
                 SearchMovies();
                 break;
             case "2":
-//                SearchByRange();
+                SearchByRange();
                 break;
             default:
-                // some code
+                System.out.println("No option selected.");
+                break;
         }
 
     }
