@@ -1,8 +1,6 @@
 package org.app;
 
 
-import io.github.cdimascio.dotenv.Dotenv;
-
 import static helpers.Functions.menu;
 
 public class Main {
