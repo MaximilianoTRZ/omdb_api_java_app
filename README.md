@@ -31,10 +31,12 @@ The full classes and functions documentation can be found in the ```documetation
 First, you will see an options menu as following:
 
 ```
--------------- MOVIE & SERIES MENU --------------
+-------------- OMDB MOVIES SEARCH APP MENU --------------
 Enter the number of the option you want:
 1. Search movie or series by name, type or year.
 2. Search movie or series by name and year range.
+0. Exit app.
+---------------------------------------------------------
 ```
 
 ### 1. Search movie or series by name, type or year.
