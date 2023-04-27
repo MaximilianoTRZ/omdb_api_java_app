@@ -87,7 +87,7 @@ public class Functions {
         }
     }
 
-    public static String SearchOne(String id, String type, String year) throws Exception {
+    public static void SearchOne(String id, String type, String year) throws Exception {
         String pid = "&i="+id;
         String ptype = "&type="+type;
         String pyear = "&y="+year;
@@ -130,14 +130,12 @@ public class Functions {
             output += "DVD: " + media.getDVD() + "\n";
             output += "BoxOffice: " + media.getBoxOffice() + "\n";
             output += "Production: " + media.getProduction() + "\n";
-            output += "Website: " + media.getWebsite() + "\n";
+            output += "Website: " + media.getWebsite() + "";
         } else if (media.getType().toString().equals("series")) {
-            output += "totalSeasons: " + media.getTotalSeasons() + "\n";
+            output += "totalSeasons: " + media.getTotalSeasons() + "";
         }
 
         System.out.println(output);
-
-        return output;
     }
 
     public static void SearchByRange() throws IOException {
