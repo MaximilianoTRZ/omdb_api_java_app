@@ -20,7 +20,7 @@ The application has the following features:
 - The dependencies specified in the pom.xml file must be resolved and downloaded by Maven. This can be done by navigating to the root directory of the project and executing the command ```mvn clean install``` in the terminal.
 - The jar file with dependencies can be created running the command ```mvn clean compile assembly:single```
 
-## Enviroment Variables
+## Environment Variables
 To configure the environment variables, a file named ```.env``` must be created in the root directory of the project. 
 In it you must write the environment variables as a key value, for example in the case of the API_KEY variable:
 ```API_KEY=ce70070f``` 
